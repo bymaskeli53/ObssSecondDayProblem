@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Obss_Ecommerce</string>
+    <string name="items">Items</string>
+    <string name="favourites">Favourites</string>
+    <string name="Tshirt">T shirt\n</string>
+</resources>
