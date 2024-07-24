@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -36,14 +36,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(navController = navController)
 
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
-            when(destination.id) {
+        setBottomNavVisibilityForEachFragment(navController)
+
+    }
+
+    private fun setBottomNavVisibilityForEachFragment(navController: NavController) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
                 R.id.productsFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                 R.id.favouritesFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                 else -> binding.bottomNavigationView.visibility = View.GONE
             }
         }
-
     }
 
 }
